@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="100">
+  <!-- I don't understand why changing rect width to "100" prevents animation width ever exceeding 100 -->
+  <rect id="element" x="0" y="0" width="700" height="100" fill="green">
+  </rect>
+  <!-- reverts to width 700 after 6 seconds -->
+  <animate targetElement="element" attributeName="width" from="200" to="0" dur="2s" repeatCount="3"/>
+</svg>

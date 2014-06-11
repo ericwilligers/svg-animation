@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg>
+      <rect id="element" x="0" y="0" width="100" height="100" fill="green">
+      </rect>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var element = document.getElementById('element');
+      // I don't know why we don't see linear color easing here.
+      var player = element.animate([{fill: 'black'}, {fill: 'blue'}], {duration: 1000, iterations: Infinity, easing: 'linear', fill: 'forwards'});
+      // Note that the width animation should start first.
+      // But if it completes immediately, we need to ensure we also complete the fill animation.
+      element.animate([{width: '200'}, {width: '100'}], {duration: 3000, iterations: 2}).addEventListener('finish', function() {
+        player.cancel();
+      });
+
+      // The fill: 'forwards' has no effect when the player is cancelled. We need to pause at the final state instead of cancelling.
+      // If we were emulating fill="remove", then cancel would be correct.
+    </script>
+  </body>
+</html>

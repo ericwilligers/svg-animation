@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg>
+      <rect id="element" width="40" height="40" fill="green">
+      </rect>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var element = document.getElementById('element');
+      // We have a polyfill bug here: fill 'none' is not being respected.
+      element.animate([{transform: 'scale(1)'}, {transform: 'scale(3)'}], {duration: 1000, fill: 'none', iterations: Infinity});
+    </script>
+  </body>
+</html>

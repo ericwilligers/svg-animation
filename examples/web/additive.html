@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg width="300" height="400">
+      <rect id="element" x="0" y="0" width="100" height="100" fill="green">
+      </rect>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var element = document.getElementById('element');
+
+      element.animate([
+        {transform: 'translate(0px, 0px)'},
+        {transform: 'translate(10px, 10px)'},
+        {transform: 'translate(0px, 40px)'},
+        {transform: 'translate(10px, 50px)'},
+        {transform: 'translate(0px, 80px)'},
+        {transform: 'translate(10px, 90px)'},
+        {transform: 'translate(0px, 120px)'},
+        {transform: 'translate(10px, 130px)'},
+        {transform: 'translate(0px, 160px)'},
+        {transform: 'translate(10px, 170px)'},
+        {transform: 'translate(0px, 200px)'},
+      ], {duration: 5000}); 
+
+    </script>
+  </body>
+</html>

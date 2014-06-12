@@ -10,7 +10,6 @@
       'use strict';
       var element = document.getElementById('element');
       element.animate([{x: '100'}, {x: '200'}], {duration: 2000, fill: 'forwards'});
-      // This height animation is being ignored - due to a Polyfill bug?
       element.animate([{height: '100'}, {height: '200'}], {duration: 2000, fill: 'forwards'});
       element.animate([{width: '100'}, {width: '200'}], {delay: 2000, duration: 2000, fill: 'forwards'});
     </script>

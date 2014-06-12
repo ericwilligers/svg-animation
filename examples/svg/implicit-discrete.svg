@@ -2,6 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400">
   <polyline points="200 200 200 300 300 300" stroke="blue" stroke-width="190" stroke-linecap="square" stroke-linejoin="bevel">
+    <animate attributeName="stroke" from="lime" to="green" dur="4s"/>
     <animate attributeName="stroke-linejoin" from="miter" to="round" dur="4s"/>
   </polyline>
 </svg>

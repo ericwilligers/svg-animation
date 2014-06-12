@@ -10,8 +10,8 @@
       var element = document.getElementById('element');
       
       var keyframes = [
-        {strokeLinejoin: 'miter'}, // setting keyframes[0]['stroke-linejoin'] also works
-        {strokeLinejoin: 'round'}
+        {stroke: 'lime', strokeLinejoin: 'miter'}, // setting keyframes[0]['stroke-linejoin'] also works
+        {stroke: 'green', strokeLinejoin: 'round'}
       ];
       element.animate(keyframes, {duration: 4000});
     </script>

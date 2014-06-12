@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg width="600" height="600">
+      <circle id="element" cx="20" cy="20" r="10" fill="green"/>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var element = document.getElementById('element');
+      element.animate([{cx: '300', cy: '300', r: '200'}, {cx: '200', cy: '200', r: '100'}], {duration: 4000, fill: 'forwards'});
+    </script>
+  </body>
+</html>

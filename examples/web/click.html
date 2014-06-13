@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg height="500">
+      <rect id="first" x="10" y="10" width="100" height="100" fill="blue"/>
+      <rect id="second" x="120" y="10" width="100" height="100" fill="blue"/>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var first = document.getElementById('first');
+      var second = document.getElementById('second');
+      var effect = new MotionPathEffect('M 0 0 L 0 300');
+
+      function animateFirst() {
+        first.animate(effect, {duration: 2000});
+      }
+
+      function animateSecond() {
+        second.animate(effect, {duration: 2000});
+      }
+
+      first.onclick = animateSecond;
+      second.onclick = animateFirst;
+    </script>
+  </body>
+</html>

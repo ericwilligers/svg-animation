@@ -3,18 +3,26 @@
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="500">
       <rect id="first" x="10" y="10" width="100" height="100" fill="blue"/>
+      <rect id="second" x="120" y="10" width="100" height="100" fill="blue"/>
     </svg>
     <script src="../web-animations.js"></script>
     <script>
       'use strict';
       var first = document.getElementById('first');
+      var second = document.getElementById('second');
       var effect = new MotionPathEffect('M 0 0 L 0 400');
-      var player = first.animate(effect, {duration: 5000});
-      player.startTime = 1000;
+      var firstPlayer = first.animate(effect, {duration: 5000});
+      var secondPlayer = second.animate(effect, {duration: 5000});
+      firstPlayer.startTime = 1000;
+      secondPlayer.startTime = 1200;
 
       setTimeout(function() {
-        player.cancel();
-      }, 1500);
+        firstPlayer.cancel();
+      }, 2500);
+
+      setTimeout(function() {
+        secondPlayer.cancel();
+      }, 2700);
     </script>
   </body>
 </html>

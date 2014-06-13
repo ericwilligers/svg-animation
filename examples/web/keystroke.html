@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body id="container">
+    <svg height="500"> <!--  focusable="true" -->
+      <rect id="first" x="10" y="10" width="100" height="100" fill="blue"/>
+      <rect id="second" x="120" y="10" width="100" height="100" fill="blue"/>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var first = document.getElementById('first');
+      var second = document.getElementById('second');
+      var effect = new MotionPathEffect('M 0 0 L 0 300');
+
+      function respondToKeystroke(event) {
+        if (event.charCode === '1'.charCodeAt())
+          first.animate([{fill: "red"}, {fill: "red"}], {duration: 1000});
+        else if (event.charCode === '2'.charCodeAt())
+          second.animate([{fill: "red"}, {fill: "red"}], {duration: 1000});
+      }
+
+      document.getElementById('container').onkeypress = respondToKeystroke;
+    </script>
+  </body>
+</html>

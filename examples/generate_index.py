@@ -8,13 +8,6 @@ env = Environment(loader=FileSystemLoader('.'))
 
 svg_examples = os.listdir('svg')
 svg_examples.sort()
-
-template = env.get_template('template-compare.html')
-for svg_example in svg_examples:
-  example = svg_example.replace('.svg', '')
-  with open('compare-%s.html' % example, 'w') as output:
-    output.write(template.render(example=example))
-
 examples = [svg_example.replace('.svg', '') for svg_example in svg_examples]
 
 template = env.get_template('template-index.html')

@@ -19,21 +19,11 @@
       }
     </style>
     <script src="populate.js"></script>
-    <script>
-      'use strict';
-
-      function populateSource() {
-        populate('display_svg', 'sourcecode_svg');
-        populate('display_web', 'sourcecode_web');
-      }
-
-      window.onload = populateSource;
-    </script>
   </header>
   <body>
     <div id="display">
-      <iframe id="display_svg" src="svg/values.svg"></iframe>
-      <iframe id="display_web" src="web/values.html"></iframe>
+      <iframe id="display_svg"></iframe>
+      <iframe id="display_web"></iframe>
     </div>
     <div id="source">
       <textarea id="sourcecode_svg" readonly="true"></textarea>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <header>
+  </header>
+  <body>
+    <ul>
+      {% for item in examples %}
+        <li><a href="compare.html?name={{ item }}">{{ item }}</a></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

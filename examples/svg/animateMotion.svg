@@ -4,4 +4,10 @@
   <rect width="40" height="40" fill="green">
     <animateMotion calcMode="linear" path="M 100 100 L 300 50" dur="2s" repeatCount="indefinite" rotate="auto"/>
   </rect>
+  <rect width="40" height="40" fill="green">
+    <animateMotion calcMode="linear" dur="2s" repeatCount="indefinite" rotate="auto">
+      <mpath xlink:href="#longPath"/>
+    </animateMotion>
+  </rect>
+  <path id="longPath" d="M 400 0 L 10 100"/>
 </svg>

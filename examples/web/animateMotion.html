@@ -2,15 +2,18 @@
 <html>
   <body>
     <svg width="400" height="200">
-      <rect id="element" width="40" height="40" fill="green">
-      </rect>
+      <rect id="first" width="40" height="40" fill="green"/>
+      <rect id="second" width="40" height="40" fill="green"/>
     </svg>
     <script src="../web-animations.js"></script>
     <script>
       'use strict';
-      var element = document.getElementById('element');
-      var effect = new MotionPathEffect('M 100 100 L 300 50', 'auto-rotate');
-      element.animate(effect, {duration: 2000, iterations: Infinity});
+      var firstElement = document.getElementById('first');
+      var secondElement = document.getElementById('second');
+      var firstEffect = new MotionPathEffect('M 100 100 L 300 50', 'auto-rotate');
+      var secondEffect = new MotionPathEffect('M 400 0 L 10 100', 'auto-rotate');
+      firstElement.animate(firstEffect, {duration: 2000, iterations: Infinity});
+      secondElement.animate(secondEffect, {duration: 2000, iterations: Infinity});
     </script>
   </body>
 </html>

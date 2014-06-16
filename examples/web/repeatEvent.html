@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="250">
+      <script>
+        'use strict';
+        function onFirstBegin() {
+          var thirdDrop = document.getElementById('thirdDrop');
+          thirdDrop.beginElement();
+        }
+        // called after each iteration completes, apart from the final iteration
+        function onFirstRepeat() {
+          var fourthDrop = document.getElementById('fourthDrop');
+          fourthDrop.beginElement();
+        }
+        function onFirstEnd() {
+          var fifthDrop = document.getElementById('fifthDrop');
+          fifthDrop.beginElement();
+        }
+      </script>
+      <g>
+        <rect id="firstRect" x="10" y="10" width="100" height="100" fill="blue"/>
+        <rect id="secondRect" x="120" y="10" width="100" height="100" fill="blue"/>
+        <rect id="thirdRect" x="230" y="10" width="100" height="100" fill="blue"/>
+        <rect id="fourthRect" x="340" y="10" width="100" height="100" fill="blue"/>
+        <rect id="fifthRect" x="450" y="10" width="100" height="100" fill="blue"/>
+
+        <!-- passive to SVG -->
+        <g id="thirdDrop"/>
+        <g id="fourthDrop"/>
+        <g id="fifthDrop"/>
+      </g>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+
+      function prepare() {
+        var thirdDrop = document.getElementById('thirdDrop');
+        Object.defineProperty(thirdDrop, 'beginElement', {
+          value: function() {
+            thirdRect.animate(keyframes, {duration: 2000});
+          }
+        });
+
+        var fourthDrop = document.getElementById('fourthDrop');
+        Object.defineProperty(fourthDrop, 'beginElement', {
+          value: function() {
+            fourthRect.animate(keyframes, {duration: 2000});
+          }
+        });
+
+        var fifthDrop = document.getElementById('fifthDrop');
+        Object.defineProperty(fifthDrop, 'beginElement', {
+          value: function() {
+            fifthRect.animate(keyframes, {duration: 3000});
+          }
+        });
+      }
+      prepare();
+
+      var keyframes = [
+        {y: "10"},
+        {y: "110"}
+      ]
+      function customOnFirstEnd() {
+        secondRect.animate(keyframes, {duration: 3000});
+        onFirstEnd();
+      }
+
+      setTimeout(function() {
+        firstRect.animate(keyframes, {duration: 2000, iterations: 3}).onfinish = customOnFirstEnd;
+        document.timeline.play(new Animation(null, [], 2000)).onfinish = onFirstRepeat;
+        document.timeline.play(new Animation(null, [], 4000)).onfinish = onFirstRepeat;
+        onFirstBegin();
+      }, 1000);
+    </script>
+  </body>
+</html>

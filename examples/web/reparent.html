@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+      <rect id="first" x="0" y="0" width="100" height="100" fill="green"/>
+      <rect id="second" x="0" y="110" width="100" height="100" fill="green"/>
+      <rect id="third" x="0" y="220" width="100" height="100" fill="green"/>
+      <rect id="fourth" x="0" y="330" width="100" height="100" fill="green"/>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      var first = document.getElementById('first');
+      var second = document.getElementById('second');
+      var third = document.getElementById('third');
+      var fourth = document.getElementById('fourth');
+      var keyframes = [{width: '100'}, {width: '400'}];
+      var timing = {duration: 3000, fill: 'forwards'};
+      var topPlayer;
+      var bottomPlayer;
+
+      function start() {
+        topPlayer = first.animate(keyframes, timing);
+        bottomPlayer = third.animate(keyframes, timing);
+      }
+
+      function reparent() {
+        var topPlayerCurrentTime = topPlayer.currentTime;
+        topPlayer.cancel();
+        topPlayer = second.animate(keyframes, timing);
+        topPlayer.currentTime = topPlayerCurrentTime;
+
+        var bottomPlayerCurrentTime = bottomPlayer.currentTime;
+        bottomPlayer.cancel();
+        bottomPlayer = fourth.animate(keyframes, timing);
+        bottomPlayer.currentTime = bottomPlayerCurrentTime;
+      }
+
+      setTimeout(start, 1000);
+      setTimeout(reparent, 3000);
+    </script>
+  </body>
+</html>

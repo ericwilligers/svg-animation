@@ -9,12 +9,16 @@
     <script src="../web-animations.js"></script>
     <script>
       'use strict';
-      var first = document.getElementById('first');
-      var second = document.getElementById('second');
-      var third = document.getElementById('third');
-      first.animate([{fill: 'red'}, {fill: 'red'}], {duration: 1000});
-      second.animate([{fill: 'red'}, {fill: 'red'}], {duration: 2000});
-      third.animate([{fill: 'red'}, {fill: 'red'}], {duration: 3000});
+
+      var firstPlayer = first.animate([{fill: 'white'}, {fill: 'red'}], {duration: 2000});
+      document.timeline.play(new Animation(null, [], 1000)).onfinish = function() { firstPlayer.cancel(); };
+
+      // We could use a keyframe to freeze the effect, but note that strategy isn't available with motion path effects.
+      // var secondPlayer = second.animate([{fill: 'white'}, {fill: 'red', offset: 0.5}, {fill: 'red'}], {duration: 2000});
+      var secondPlayer = second.animate([{fill: 'white'}, {fill: 'red'}], {duration: 1000, fill: 'forwards'});
+      document.timeline.play(new Animation(null, [], 2000)).onfinish = function() { secondPlayer.cancel(); };
+
+      third.animate([{fill: 'white'}, {fill: 'red'}], {duration: 3000});
     </script>
   </body>
 </html>

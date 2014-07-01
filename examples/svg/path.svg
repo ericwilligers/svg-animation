@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="400">
+
+  <path id="loop" d="M 100,100 S 120,380 400,400 S 380,120 100,100">
+    <animate attributeName="d" dur="2s"
+      from="M 100,100 S 120,380 400,400 S 380,120 100,100"
+      to= "M 50,50 S 60,220 330,330 S 320,60 50,50" fill="freeze"/>
+    <animate attributeName="fill" dur="2s"
+      from="red"
+      to= "blue" fill="freeze"/>
+  </path>
+
+</svg>

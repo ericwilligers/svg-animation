@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg width="600" height="400">
+      <path id="loop" d="M 100,100 S 120,380 400,400 S 380,120 100,100">
+      </path>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var loop = document.getElementById('loop');
+      // Path animations are not currently implemented in the Web Animations polyfill.
+      loop.animate([
+        {d: 'M 100,100 S 120,380 400,400 S 380,120 100,100', fill: 'red'},
+        {d: 'M 50,50 S 60,220 330,330 S 320,60 50,50', fill: 'blue'}
+      ], {duration: 2000, fill: 'forwards'});
+    </script>
+  </body>
+</html>

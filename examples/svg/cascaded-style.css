@@ -1,0 +1,13 @@
+#I rect {
+  fill: blue;
+  stroke-width: 1;
+}
+
+#I {
+  fill: red;
+  stroke-width: 30;
+}
+
+#C rect {
+  fill: green;
+}

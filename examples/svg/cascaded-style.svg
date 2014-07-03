@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<?xml-stylesheet href="cascaded-style.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="10cm" height="5cm" viewBox="0 0 1000 500">
+
+  <!-- This example illustrates the required CSS cascading behavior if we polyfilled defs and use.
+       The cascaded style for "#C rect" takes priority over the inherited style for "#I" -->
+
+  <g id="C">
+    <defs>
+      <g id="M">
+        <rect id="R" x="200" y="100" width="600" height="300">
+          <set attributeName="stroke" to="lime"/>
+        </rect>
+      </g>
+    </defs>
+  </g>
+  <g id="I">
+    <use id="U" xlink:href="#R"/>
+  </g>
+
+</svg>

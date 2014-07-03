@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg width="600" height="470">
+      <polygon id="element" fill="yellow" stroke="lime" stroke-width="10" 
+               points="100,462 518,462 309,100"/>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var element = document.getElementById('element');
+      // not yet implemented in Web Animations:-
+      element.animate([{points: '100,462 518,462 309,100'}, {points: '518,462 309,100 100,462'}], {duration: 2000, iterations: 3});
+    </script>
+  </body>
+</html>

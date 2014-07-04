@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg width="500" height="200">
+      <rect id="rectA" x="0" y="0" width="90" height="100" fill="green"/>
+      <rect id="rectB" x="100" y="0" width="90" height="100" fill="green"/>
+      <rect id="rectC" x="200" y="0" width="28" height="100" fill="green"/>
+      <rect id="rectD" x="231" y="0" width="28" height="100" fill="green"/>
+      <rect id="rectE" x="262" y="0" width="28" height="100" fill="green"/>
+      <rect id="rectF" x="300" y="0" width="90" height="100" fill="green"/>
+      <rect id="rectG" x="400" y="0" width="90" height="100" fill="green"/>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var rectA = document.getElementById('rectA');
+      var rectB = document.getElementById('rectB');
+      var rectC = document.getElementById('rectC');
+      var rectD = document.getElementById('rectD');
+      var rectE = document.getElementById('rectE');
+      var rectF = document.getElementById('rectF');
+      var rectG = document.getElementById('rectG');
+
+      var keyframes = [
+        { y: '0' },
+        { y: '100' },
+      ];
+      rectA.animate(keyframes, {duration: 1000 }).startTime = 6000;
+      rectB.animate(keyframes, {duration: 1000 }).startTime = 3000;
+
+      rectC.animate(keyframes, {duration: 1000})
+      rectC.animate(keyframes, {duration: 1000}).startTime = 1000;
+      rectC.animate(keyframes, {duration: 1000}).startTime = 2000;
+
+      rectD.animate(keyframes, {duration: 1000})
+      rectD.animate(keyframes, {duration: 1000}).startTime = 1000;
+      rectD.animate(keyframes, {duration: 1000}).startTime = 2000;
+
+      rectE.animate(keyframes, {duration: 1000})
+      rectE.animate(keyframes, {duration: 1000}).startTime = 1000;
+      rectE.animate(keyframes, {duration: 1000}).startTime = 2000;
+
+      rectF.animate(keyframes, {duration: 1000 }).startTime = 5000;
+      rectG.animate(keyframes, {duration: 1000 }).startTime = 4000;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg width="500" height="200">
+      <rect id="rectE" x="200" y="0" width="28" height="100" fill="green"/>
+      <rect id="rectF" x="231" y="0" width="28" height="100" fill="green"/>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var rectE = document.getElementById('rectE');
+      var rectF = document.getElementById('rectF');
+
+      var keyframes = [
+        { y: '0' },
+        { y: '100' },
+      ];
+      rectE.animate(keyframes, {duration: 1000 }).startTime = 1000;
+
+      // The later animation have not been implemented.
+      // We first need to establish the correct behavior as Chrome and Firefox differ.
+    </script>
+  </body>
+</html>

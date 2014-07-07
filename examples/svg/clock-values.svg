@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+  <rect id="firstRect" x="0" y="0" width="40" height="100">
+    <animate id="firstAnimation" attributeName="height" from="100" to="1440100" dur="2h"/>
+  </rect>
+  <rect id="secondRect" x="50" y="0" width="40" height="100">
+    <animate id="secondAnimation" attributeName="height" from="100" to="24100" dur="2min"/>
+  </rect>
+  <rect id="thirdRect" x="100" y="0" width="40" height="100">
+    <animate id="thirdAnimation" attributeName="height" from="100" to="6100" dur="30"/> <!-- seconds implicitly -->
+  </rect>
+  <rect id="fourthRect" x="150" y="0" width="40" height="100">
+    <animate id="fourthAnimation" attributeName="height" from="100" to="1630" dur="7650ms"/>
+  </rect>
+  <rect id="fifthRect" x="200" y="0" width="40" height="100">
+    <animate id="fifthAnimation" attributeName="height" from="100" to="24750" dur="02:03.250"/>
+  </rect>
+  <rect id="sixthRect" x="250" y="0" width="40" height="100">
+    <animate id="sixthAnimation" attributeName="height" from="100" to="1477000" dur="2:03:04.500"/>
+  </rect>
+  <rect id="seventhRect" x="300" y="0" width="40" height="100">
+    <animate id="seventhAnimation" attributeName="height" from="100" to="1400" dur="00:06.500"/>
+  </rect>
+  <rect id="eighthRect" x="350" y="0" width="40" height="100">
+    <animate id="eighthAnimation" attributeName="height" from="100" to="1550" dur="0:00:07.250"/>
+  </rect>
+  <rect id="ninthRect" x="400" y="0" width="40" height="100">
+    <animate id="ninthAnimation" attributeName="height" from="100" to="999999" dur="indefinite"/>
+  </rect>
+  <rect id="tenthRect" x="450" y="0" width="40" height="100">
+    <animate id="tenthAnimation" attributeName="height" from="100" to="999999"/> <!-- indefinite duration, implicitly -->
+  </rect>
+</svg>

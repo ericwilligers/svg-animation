@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg width="500" height="500">
+      <rect id="firstRect" x="0" y="0" width="40" height="100"/>
+      <rect id="secondRect" x="50" y="0" width="40" height="100"/>
+      <rect id="thirdRect" x="100" y="0" width="40" height="100"/>
+      <rect id="fourthRect" x="150" y="0" width="40" height="100"/>
+      <rect id="fifthRect" x="200" y="0" width="40" height="100"/>
+      <rect id="sixthRect" x="250" y="0" width="40" height="100"/>
+      <rect id="seventhRect" x="300" y="0" width="40" height="100"/>
+      <rect id="eighthRect" x="350" y="0" width="40" height="100"/>
+      <rect id="ninthRect" x="400" y="0" width="40" height="100"/>
+      <rect id="tenthRect" x="450" y="0" width="40" height="100"/>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var firstRect = document.getElementById('firstRect');
+      var secondRect = document.getElementById('secondRect');
+      var thirdRect = document.getElementById('thirdRect');
+      var fourthRect = document.getElementById('fourthRect');
+      var fifthRect = document.getElementById('fifthRect');
+      var sixthRect = document.getElementById('sixthRect');
+      var seventhRect = document.getElementById('seventhRect');
+      var eighthRect = document.getElementById('eighthRect');
+      var ninthRect = document.getElementById('ninthRect');
+      var tenthRect = document.getElementById('tenthRect');
+
+      firstRect.animate([{height: '100'}, {height: '1440100'}], {duration: 7200000});
+      secondRect.animate([{height: '100'}, {height: '24100'}], {duration: 120000});
+      thirdRect.animate([{height: '100'}, {height: '6100'}], {duration: 30000});
+      fourthRect.animate([{height: '100'}, {height: '1630'}], {duration: 7650});
+      fifthRect.animate([{height: '100'}, {height: '24750'}], {duration: 123250});
+      sixthRect.animate([{height: '100'}, {height: '1477000'}], {duration: 7384500});
+      seventhRect.animate([{height: '100'}, {height: '1400'}], {duration: 6500});
+      eighthRect.animate([{height: '100'}, {height: '1550'}], {duration: 7250});
+      ninthRect.animate([{height: '100'}, {height: '999999'}], {duration: Infinity});
+      tenthRect.animate([{height: '100'}, {height: '999999'}], {duration: Infinity});
+    </script>
+  </body>
+</html>

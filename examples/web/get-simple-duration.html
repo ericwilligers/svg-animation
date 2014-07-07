@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../web-animations.js"></script>
+
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="500">
+      <rect id="first" x="10" y="10" width="100" height="100" fill="lime"/>
+      <g id="moveFirst"/>
+
+      <script>
+        'use strict';
+
+        var first = document.getElementById('first');
+        var moveFirst = document.getElementById('moveFirst');
+        var firstPlayer;
+        var firstAnimation;
+        function prepare() {
+          Object.defineProperty(moveFirst, 'targetElement', {
+            get: function() {
+              return firstAnimation.target;
+            }
+          });
+
+          Object.defineProperty(moveFirst, 'getSimpleDuration', {
+            value: function() {
+              return firstAnimation.duration / 1000;
+            }
+          });
+
+          Object.defineProperty(moveFirst, 'getStartTime', {
+            value: function() {
+              if (firstPlayer && !firstPlayer.finished)
+                return firstPlayer.startTime / 1000;
+
+              throw DOMException; // ideally, exception would have code INVALID_STATE_ERR
+            }
+          });
+
+          Object.defineProperty(moveFirst, 'getCurrentTime', {
+            value: function() {
+              return document.timeline.currentTime / 1000;
+            }
+          });
+        }
+        prepare();
+
+        var effect = new MotionPathEffect('M 0 0 L 0 400');
+        var timingOptions = { duration: 15000 };
+        firstAnimation = new Animation(first, effect, timingOptions);
+        var startTimeAtBegin;
+        var currentTimeAtBegin;
+
+        setTimeout(function() {
+          if (moveFirst.targetElement != first)
+            alert('Unexpected target element');
+          if (moveFirst.getSimpleDuration() != 15)
+            alert('Unexpected simple duration');
+
+          firstPlayer = document.timeline.play(firstAnimation);
+          startTimeAtBegin = moveFirst.getStartTime();
+          currentTimeAtBegin = moveFirst.getCurrentTime();
+        }, 1000);
+
+        setTimeout(function() {
+          if (moveFirst.getStartTime() != startTimeAtBegin)
+            alert('Inconsistent start time');
+          var elapsedSeconds = moveFirst.getCurrentTime() - currentTimeAtBegin;
+          var expectedElapsedSeconds = 2;
+          if (Math.abs(elapsedSeconds - expectedElapsedSeconds) > 0.5)
+            alert('Unexpected current time');
+          firstPlayer.cancel();
+        }, 3000);
+      </script>
+    </svg>
+
+  </body>
+</html>

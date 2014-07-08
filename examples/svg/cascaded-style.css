@@ -1,13 +1,25 @@
-#I rect {
-  fill: blue;
-  stroke-width: 1;
+#Inherited rect {
+  fill: yellow;
+  stroke-width: 10;
 }
 
-#I {
+#Inherited {
   fill: red;
   stroke-width: 30;
 }
 
-#C rect {
+#Cascade rect {
   fill: green;
 }
+
+/*
+Cascaded style takes priority: #Cascade rect
+"For user agents that support Styling with CSS, the conceptual deep cloning of the referenced element into a non-exposed DOM tree also copies any property values resulting from the CSS cascade ([CSS2], chapter 6) on the referenced element and its contents. CSS2 selectors can be applied to the original (i.e., referenced) elements because they are part of the formal document structure. CSS2 selectors cannot be applied to the (conceptually) cloned DOM tree because its contents are not part of the formal document structure." [1]
+
+Inherited style applies next: #Inherited
+"Property inheritance, however, works as if the referenced element had been textually included as a deeply cloned child of the ‘use’ element. The referenced element inherits properties from the ‘use’ element and the ‘use’ element's ancestors. An instance of a referenced element does not inherit properties from the referenced element's original parents." [1]
+
+We expect fill: green and stroke-width: 30
+
+[1] http://www.w3.org/TR/SVG/struct.html#UseElement
+*/

@@ -8,17 +8,17 @@
   <!-- This example illustrates the required CSS cascading behavior if we polyfilled defs and use.
        The cascaded style for "#C rect" takes priority over the inherited style for "#I" -->
 
-  <g id="C">
+  <g id="Cascade">
     <defs>
-      <g id="M">
-        <rect id="R" x="200" y="100" width="600" height="300">
-          <set attributeName="stroke" to="lime"/>
+      <g>
+        <rect id="Rect" x="200" y="100" width="600" height="300">
+          <set attributeName="stroke" to="lime" dur="3000ms"/> 
         </rect>
       </g>
     </defs>
   </g>
-  <g id="I">
-    <use id="U" xlink:href="#R"/>
+  <g id="Inherited">
+    <use xlink:href="#Rect"/>
   </g>
 
 </svg>

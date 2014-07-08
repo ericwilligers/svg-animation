@@ -8,7 +8,7 @@ env = Environment(loader=FileSystemLoader('.'))
 
 svg_examples = os.listdir('svg')
 svg_examples.sort()
-examples = [svg_example.replace('.svg', '') for svg_example in svg_examples]
+examples = [svg_example.replace('.svg', '') for svg_example in svg_examples if '.svg' in svg_example]
 
 template = env.get_template('template-index.html')
 with open('index.html', 'w') as output:

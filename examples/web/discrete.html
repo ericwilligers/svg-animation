@@ -10,13 +10,18 @@
       'use strict';
       var element = document.getElementById('element');
       var keyframes = [
-        {width: '100'},
-        {width: '10'},
-        {width: '50'},
-        {width: '10'},
-        {width: '100'}
+        {width: '100', offset:0},
+        {width: '100', offset:0.2},
+        {width: '10', offset:0.2},
+        {width: '10', offset:0.4},
+        {width: '50', offset:0.4},
+        {width: '50', offset:0.6},
+        {width: '10', offset:0.6},
+        {width: '10', offset:0.8},
+        {width: '100', offset:0.8},
+        {width: '100', offset:1}
       ];
-      element.animate(keyframes, {duration: 2000, iterations: 2, easing: 'steps(4, end)'});
+      element.animate(keyframes, {duration: 5000, iterations: 2});
     </script>
   </body>
 </html>

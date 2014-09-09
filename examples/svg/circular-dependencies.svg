@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="200">
+
+  <script>
+    var started = [];
+    var oldtime = new Date().getTime();
+
+    function logBegin(name) {
+      var newtime = new Date().getTime();
+      if (newtime - oldtime > 300) {
+        oldtime = newtime;
+        if (started.length > 0) {
+          started.sort();
+          console.log(started);
+          started = [];
+        }
+      }
+
+      started.push(name);
+    }
+  </script>
+
+  <rect x="200" y="0" width="28" height="100" fill="green">
+    <animate id="E" attributeName="y" from="0" to="100" dur="1s" begin="1s; F.begin - 1s; F.begin + 1s" onbegin="logBegin('E')"/>
+  </rect>
+  <rect x="231" y="0" width="28" height="100" fill="green">
+    <animate id="F" attributeName="y" from="0" to="100" dur="1s" begin="E.begin + 4s" onbegin="logBegin('F')"/>
+  </rect>
+
+  <!--
+    Firefox begins with
+      Array [ "E" ]
+      Array [ "E" ]
+      Array [ "F" ]
+      Array [ "E" ]
+      Array [ "E" ]
+      Array [ "F" ]
+      Array [ "E" ]
+      Array [ "F" ]
+      Array [ "E", "E", "F" ]
+      Array [ "E" ]
+      Array [ "F" ]
+      Array [ "E", "E", "F" ]
+    and then repeats
+      Array [ "E", "F" ]
+
+    Chrome begins with
+      ["E"]
+      ["E"]
+      ["F"]
+      ["E"]
+      ["E"]
+      ["F"]
+      ["E"]
+      ["F"]
+    and then repeats
+      ["E", "F"]
+      ["E"]
+      ["F"]
+      ["E"]
+      ["F"]
+    Immediately after the ["E", "F"] animation completes, Chrome holds F at y=100 for a second; Firefox never does.
+  -->    
+</svg>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <svg id="container" width="500">
+      <rect id="element" x="0" y="0" height="100" fill="green">
+      </rect>
+    </svg>
+    <script src="../web-animations.js"></script>
+    <script>
+      'use strict';
+      var container = document.getElementById('container');
+      var element = document.getElementById('element');
+      element.animate([{width: '0%'}, {width: '100%'}], {duration: 5000, fill: 'forwards'});
+
+      setTimeout(function() {
+        container.style.width = 200;
+      }, 3000);
+    </script>
+  </body>
+</html>

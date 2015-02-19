@@ -3,12 +3,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="200">
 
   <rect x="10" y="110" width="100" height="10" fill="blue">
-    <animate attributeName="fill" from="red" to="red" dur="2s" max="1s"/>
+    <animate attributeName="fill" from="white" to="red" dur="2s" max="1s"/>
   </rect>
   <rect x="10" y="120" width="200" height="10" fill="blue">
-    <animate attributeName="fill" from="red" to="red" dur="1s" min="2s"/>
+    <animate attributeName="fill" from="white" to="red" dur="1s" min="2s"/>
   </rect>
   <rect x="10" y="130" width="300" height="10" fill="blue">
-    <animate attributeName="fill" from="red" to="red" dur="3s" min="0s" max="indefinite"/>
+    <animate attributeName="fill" from="white" to="red" dur="3s" min="0s" max="indefinite"/>
   </rect>
 </svg>

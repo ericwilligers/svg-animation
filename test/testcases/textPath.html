@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="textPath-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600">
+  <defs>
+    <path id="shortPath"
+          d="M 100 200 C 200 300 400 -100 600 300" />
+  </defs>
+
+  <text font-family="cursive" font-size="40" fill="green" opacity="0.5">
+    <textPath id="polyfillTextPath" xlink:href="#shortPath">Tilted message</textPath>
+  </text>
+  <set xlink:href="#polyfillTextPath" attributeName="startOffset" to="40"/>
+
+  <text font-family="cursive" font-size="40" fill="red" opacity="0.5">
+    <textPath id="nativeTextPath" xlink:href="#shortPath">Tilted message</textPath>
+  </text>
+  <nativeSet xlink:href="#nativeTextPath" attributeName="startOffset" to="40"/>
+</svg>
+
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="timing-cycle-three-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="500">
+  <!-- Example 3 from http://www.w3.org/TR/SMIL3/smil-timing.html#q99 -->
+  <rect id="polyfillRect" x="0" y="100" width="300" height="300" fill="green" opacity="0.5">
+    <animate id="polyfillWidth" attributeName="width" from="100" to="190" begin="0;polyfillHeight.begin+2s" dur="3s"/>
+    <animate id="polyfillHeight" attributeName="height" from="100" to="190" begin="polyfillWidth.begin+2s" dur="3s"/>
+  </rect>
+
+  <rect id="nativeRect" x="0" y="100" width="300" height="300" fill="red" opacity="0.5">
+    <nativeAnimate id="nativeWidth" attributeName="width" from="100" to="190" begin="0;nativeHeight.begin+2s" dur="3s"/>
+    <nativeAnimate id="nativeHeight" attributeName="height" from="100" to="190" begin="nativeWidth.begin+2s" dur="3s"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

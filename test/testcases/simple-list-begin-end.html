@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="simple-list-begin-end-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="800">
+  <circle id="polyfillCircle" cx="100" cy="100" r="10" fill="green" opacity="0.5">
+    <animate id="polyfillAnimR" attributeName="r" from="100" to="180" dur="8s" begin="2s;6s;8s" end="0s;4s;10s;12s" fill="freeze"/>
+    <!-- We omit fill freeze in our animation of cx -->
+    <animate id="polyfillAnimCX" attributeName="cx" from="200" to="400" dur="20s" begin="0s;indefinite" end="11s;indefinite"/>
+    <animate id="polyfillAnimCY" attributeName="cy" from="200" to="600" dur="20s" begin="-500ms;7500ms;indefinite" end="13s;indefinite" fill="freeze"/>
+  </circle>
+
+  <circle id="nativeCircle" cx="100" cy="100" r="10" fill="red" opacity="0.5">
+    <nativeAnimate id="polyfillAnimR" attributeName="r" from="100" to="180" dur="8s" begin="2s;6s;8s" end="0s;4s;10s;12s" fill="freeze"/>
+    <nativeAnimate id="polyfillAnimCX" attributeName="cx" from="200" to="400" dur="20s" begin="0s;indefinite" end="11s;indefinite"/>
+    <nativeAnimate id="polyfillAnimCY" attributeName="cy" from="200" to="600" dur="20s" begin="-500ms;7500ms;indefinite" end="13s;indefinite" fill="freeze"/>
+  </circle>
+</svg>
+
+  </body>
+</html>

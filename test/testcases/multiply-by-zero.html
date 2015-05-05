@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="multiply-by-zero-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="1000">
+  <rect id="firstPolyfillRect" x="0" y="0" width="100" height="90" fill="green">
+    <animate id="firstPolyfillAnim" attributeName="width" values="100;200" dur="0s" repeatCount="indefinite" begin="1s"/>
+  </rect>
+  <rect id="secondPolyfillRect" x="0" y="100" width="100" height="90" fill="green">
+    <animate id="secondPolyfillAnim" attributeName="width" values="100;200" dur="indefinite" repeatCount="0s" begin="firstPolyfillAnim.end + 1s"/>
+  </rect>
+  <rect id="thirdPolyfillRect" x="0" y="200" width="100" height="90" fill="green">
+    <animate id="thirdPolyfillAnim" attributeName="width" values="100;300" dur="4s" begin="secondPolyfillAnim.end + 1s"/>
+  </rect>
+
+  <rect id="firstNativeRect" x="0" y="300" width="100" height="90" fill="green">
+    <nativeAnimate id="firstNativeAnim" attributeName="width" values="100;200" dur="0s" repeatCount="indefinite" begin="1s"/>
+  </rect>
+  <rect id="secondNativeRect" x="0" y="400" width="100" height="90" fill="green">
+    <nativeAnimate id="secondNativeAnim" attributeName="width" values="100;200" dur="indefinite" repeatCount="0s" begin="firstNativeAnim.end + 1s"/>
+  </rect>
+  <!-- Chrome does not support 0*indefinite correctly -->
+  <rect id="thirdNativeRect" x="0" y="500" width="100" height="90" fill="green">
+    <nativeAnimate id="thirdNativeAnim" attributeName="width" values="100;300" dur="4s" begin="firstNativeAnim.begin + 2s"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

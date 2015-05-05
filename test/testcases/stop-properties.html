@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="stop-properties-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="250" height="250">
+
+  <defs>
+    <linearGradient id="polyfillGradient">
+      <stop offset="0" stop-color="#F00" />
+      <stop id="polyfillStop" offset="1" stop-color="#0F0">
+        <animate attributeType="XML" attributeName="offset" values="0.25;0.3;0.5" keyTimes="0;0.75;1" dur="4s"/>
+        <set attributeType="XML" attributeName="stop-color" to="rgba(0, 0, 128, 1)" begin="2s"/>
+        <animate attributeType="XML" attributeName="offset" from="0.5" to="0.7" begin="4s" dur="1s"/>
+        <set attributeType="XML" attributeName="offset" to="0.75" begin="5s"/>
+        <set attributeType="XML" attributeName="stop-opacity" to="0.5" begin="8s"/>
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <rect fill="url(#polyfillGradient)" stroke="black" stroke-width="1" x="0" y="0" width="100" height="100"/>
+
+  <defs>
+    <linearGradient id="nativeGradient">
+      <stop offset="0" stop-color="#F00" />
+      <stop id="nativeStop" offset="1" stop-color="#0F0">
+        <nativeAnimate attributeType="XML" attributeName="offset" values="0.25;0.3;0.5" keyTimes="0;0.75;1" dur="4s"/>
+        <nativeSet attributeType="XML" attributeName="stop-color" to="rgba(0, 0, 128, 1)" begin="2s"/>
+        <nativeAnimate attributeType="XML" attributeName="offset" from="0.5" to="0.7" begin="4s" dur="1s"/>
+        <nativeSet attributeType="XML" attributeName="offset" to="0.75" begin="5s"/>
+        <nativeSet attributeType="XML" attributeName="stop-opacity" to="0.5" begin="8s"/>
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <rect fill="url(#nativeGradient)" stroke="black" stroke-width="1" x="110" y="110" width="100" height="100"/>
+
+</svg>
+
+  </body>
+</html>

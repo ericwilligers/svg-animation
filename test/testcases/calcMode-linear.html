@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="calcMode-linear-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="500">
+  <defs>
+    <filter id="polyfillFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="500" height="500">
+      <feFlood id="polyfillFlood" x="100" y="100" width="300" height="300" result="pFlood">
+        <animate attributeName="flood-color" values="rgba(80, 60, 0, 1);rgba(0, 0, 0, 1);rgba(0, 50, 120, 1)" dur="46s" calcMode="linear"/>
+        <animate attributeName="flood-opacity" values="0.6;0.5;0.86" dur="46s" calcMode="linear"/>
+      </feFlood>
+      <feDiffuseLighting id="polyfillDiffuse" in="SourceGraphic" result="pDiffuse">
+        <animate attributeName="lighting-color" values="rgba(30, 40, 120, 1);rgba(0, 0, 0, 1);rgba(100, 0, 0, 1)" dur="46s" calcMode="linear"/>
+        <feDistantLight azimuth="45" elevation="10"/>
+      </feDiffuseLighting>
+      <feComposite in="pFlood" in2="pDiffuse" operator="arithmetic" k1="0.2" k2="0.2" k3="0.2" k4="0"/>
+    </filter>
+
+    <filter id="nativeFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="500" height="500">
+      <feFlood id="nativeFlood" x="100" y="100" width="300" height="300" result="nFlood">
+        <nativeAnimate attributeName="flood-color" values="rgba(80, 60, 0, 1);rgba(0, 0, 0, 1);rgba(0, 50, 120, 1)" dur="46s" calcMode="linear"/>
+        <nativeAnimate attributeName="flood-opacity" values="0.6;0.5;0.86" dur="46s" calcMode="linear"/>
+      </feFlood>
+      <feDiffuseLighting id="nativeDiffuse" in="SourceGraphic" result="nDiffuse">
+        <nativeAnimate attributeName="lighting-color" values="rgba(30, 40, 120, 1);rgba(0, 0, 0, 1);rgba(100, 0, 0, 1)" dur="46s" calcMode="linear"/>
+        <feDistantLight azimuth="45" elevation="10"/>
+      </feDiffuseLighting>
+      <feComposite in="nFlood" in2="nDiffuse" operator="arithmetic" k1="0.2" k2="0.2" k3="0.2" k4="0"/>
+    </filter>
+  </defs>
+  <use filter="url(#nativeFilter)" x="0" y="0"/>
+  <use filter="url(#nativeFilter)" x="600" y="0"/>
+</svg>
+
+  </body>
+</html>

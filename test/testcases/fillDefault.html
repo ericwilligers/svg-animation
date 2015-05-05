@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="fillDefault-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="190" height="70">
+  <g fillDefault="freeze">
+    <rect id="polyfillRectFF" x="0" y="0" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="freeze"/>
+    </rect>
+    <rect id="polyfillRectFR" x="40" y="0" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="remove"/>
+    </rect>
+    <rect id="polyfillRectFD" x="80" y="0" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="default"/>
+    </rect>
+    <rect id="polyfillRectFU" x="120" y="0" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s"/>
+    </rect>
+  </g>
+  <g fillDefault="remove">
+    <rect id="polyfillRectRF" x="0" y="20" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="freeze"/>
+    </rect>
+    <rect id="polyfillRectRR" x="40" y="20" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="remove"/>
+    </rect>
+    <rect id="polyfillRectRD" x="80" y="20" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="default"/>
+    </rect>
+    <rect id="polyfillRectRU" x="120" y="20" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s"/>
+    </rect>
+  </g>
+  <g fillDefault="inherit">
+    <rect id="polyfillRectIF" x="0" y="40" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="freeze"/>
+    </rect>
+    <rect id="polyfillRectIR" x="40" y="40" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="remove"/>
+    </rect>
+    <rect id="polyfillRectID" x="80" y="40" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="default"/>
+    </rect>
+    <rect id="polyfillRectIU" x="120" y="40" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s"/>
+    </rect>
+    <rect id="polyfillRectIAF" x="160" y="40" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30"/>
+    </rect>
+  </g>
+  <g>
+    <rect id="polyfillRectUF" x="0" y="60" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="freeze"/>
+    </rect>
+    <rect id="polyfillRectUR" x="40" y="60" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="remove"/>
+    </rect>
+    <rect id="polyfillRectUD" x="80" y="60" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s" fill="default"/>
+    </rect>
+    <rect id="polyfillRectUU" x="120" y="60" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30" dur="1s"/>
+    </rect>
+    <rect id="polyfillRectUAF" x="160" y="60" width="10" height="10" fill="green" opacity="0.5" fillDefault="inherit">
+      <set attributeName="width" to="30"/>
+    </rect>
+  </g>
+
+  <g fillDefault="freeze">
+    <rect id="nativeRectFF" x="0" y="0" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="freeze"/>
+    </rect>
+    <rect id="nativeRectFR" x="40" y="0" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="remove"/>
+    </rect>
+    <rect id="nativeRectFD" x="80" y="0" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="default"/>
+    </rect>
+    <rect id="nativeRectFU" x="120" y="0" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s"/>
+    </rect>
+  </g>
+  <g fillDefault="remove">
+    <rect id="nativeRectRF" x="0" y="20" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="freeze"/>
+    </rect>
+    <rect id="nativeRectRR" x="40" y="20" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="remove"/>
+    </rect>
+    <rect id="nativeRectRD" x="80" y="20" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="default"/>
+    </rect>
+    <rect id="nativeRectRU" x="120" y="20" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s"/>
+    </rect>
+  </g>
+  <g fillDefault="inherit">
+    <rect id="nativeRectIF" x="0" y="40" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="freeze"/>
+    </rect>
+    <rect id="nativeRectIR" x="40" y="40" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="remove"/>
+    </rect>
+    <rect id="nativeRectID" x="80" y="40" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="default"/>
+    </rect>
+    <rect id="nativeRectIU" x="120" y="40" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s"/>
+    </rect>
+    <rect id="nativeRectIAF" x="160" y="40" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30"/>
+    </rect>
+  </g>
+  <g>
+    <rect id="nativeRectUF" x="0" y="60" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="freeze"/>
+    </rect>
+    <rect id="nativeRectUR" x="40" y="60" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="remove"/>
+    </rect>
+    <rect id="nativeRectUD" x="80" y="60" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s" fill="default"/>
+    </rect>
+    <rect id="nativeRectUU" x="120" y="60" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30" dur="1s"/>
+    </rect>
+    <rect id="nativeRectUAF" x="160" y="60" width="10" height="10" fill="red" opacity="0.5" fillDefault="inherit">
+      <nativeSet attributeName="width" to="30"/>
+    </rect>
+  </g>
+</svg>
+
+  </body>
+</html>

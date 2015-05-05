@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="repeatDur-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="100">
+  <rect id="polyfillRect" x="0" y="0" width="300" height="100" fill="green" opacity="0.5">
+    <animate attributeName="width" from="200" to="0" dur="4s" repeatDur="12s"/>
+  </rect>
+
+  <rect id="nativeRect" x="0" y="0" width="300" height="100" fill="red" opacity="0.5">
+    <nativeAnimate attributeName="width" from="200" to="0" dur="4s" repeatDur="12s"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

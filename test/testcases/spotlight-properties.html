@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="spotlight-properties-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="900">
+
+  <filter id="polyfillFilter">
+    <feDiffuseLighting result="polyfillDiffuse" in="SourceGraphic" diffuseConstant="15">
+      <feSpotLight id="polyfillSpotLight" x="600" y="600" z="500" pointsAtX="0" pointsAtY="0" pointsAtZ="0" limitingConeAngle="12">
+        <animate attributeName="z" from="500" to="200" dur="3s" fill="freeze"/>
+        <animate attributeName="pointsAtX" from="0" to="180" dur="3s" fill="freeze" begin="3s"/>
+        <animate attributeName="pointsAtY" from="0" to="180" dur="3s" fill="freeze" begin="6s"/>
+        <animate attributeName="pointsAtZ" from="0" to="180" dur="3s" begin="9s"/>
+        <animate attributeName="limitingConeAngle" from="12" to="18" dur="3s" begin="12s"/>
+      </feSpotLight>
+    </feDiffuseLighting>
+
+    <feGaussianBlur id="polyfillGaussianBlur" in="SourceAlpha" result="polyfillBlur">
+      <animate attributeName="stdDeviation" from="5 7" to="8 10" dur="24s" fill="freeze"/>
+    </feGaussianBlur>
+    <feSpecularLighting result="polyfillSpecular" in="polyfillBlur" specularConstant="1.5" specularExponent="7" lighting-color="#0178EF">
+        <feDistantLight id="polyfillDistantLight" azimuth="0" elevation="90">
+          <nativeAnimate attributeName="elevation" from="90" to="30" dur="6s" begin="15s"/>
+          <nativeAnimate attributeName="azimuth" from="0" to="135" dur="3s" begin="18s"/>
+        </feDistantLight>
+    </feSpecularLighting>
+
+    <feComposite in="polyfillSpecular" in2="polyfillDiffuse" operator="arithmetic" k1="1"/>
+  </filter>
+  <g fill="blue" filter="url(#polyfillFilter)">
+    <rect x="10" y="10" width="490" height="580"/>
+  </g>
+
+  <filter id="nativeFilter">
+    <feDiffuseLighting result="nativeDiffuse" in="SourceGraphic" diffuseConstant="15">
+      <feSpotLight id="nativeSpotLight" x="1200" y="600" z="500" pointsAtX="600" pointsAtY="0" pointsAtZ="0" limitingConeAngle="12">
+        <nativeAnimate attributeName="z" from="500" to="200" dur="3s" fill="freeze"/>
+        <nativeAnimate attributeName="pointsAtX" from="600" to="780" dur="3s" fill="freeze" begin="3s"/>
+        <nativeAnimate attributeName="pointsAtY" from="0" to="180" dur="3s" fill="freeze" begin="6s"/>
+        <nativeAnimate attributeName="pointsAtZ" from="0" to="180" dur="3s" begin="9s"/>
+        <nativeAnimate attributeName="limitingConeAngle" from="12" to="18" dur="3s" begin="12s"/>
+
+      </feSpotLight>
+    </feDiffuseLighting>
+
+    <feGaussianBlur id="nativeGaussianBlur" in="SourceAlpha" result="nativeBlur">
+      <nativeAnimate attributeName="stdDeviation" from="5 7" to="8 10" dur="24s" fill="freeze"/>
+    </feGaussianBlur>
+    <feSpecularLighting result="nativeSpecular" in="nativeBlur" specularConstant="1.5" specularExponent="7" lighting-color="#0178EF">
+        <feDistantLight id="nativeDistantLight" azimuth="0" elevation="90">
+          <nativeAnimate attributeName="elevation" from="90" to="30" dur="6s" begin="15s"/>
+          <nativeAnimate attributeName="azimuth" from="0" to="135" dur="3s" begin="18s"/>
+        </feDistantLight>
+    </feSpecularLighting>
+
+    <feComposite in="nativeSpecular" in2="nativeDiffuse" operator="arithmetic" k1="1"/>
+  </filter>
+  <g fill="blue" filter="url(#nativeFilter)">
+    <rect x="610" y="10" width="490" height="580"/>
+  </g>
+
+</svg>
+
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="animateMotion-stationary-check.js"></script>
+
+    <!-- From crbug.com/321022 -->
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400">
+  <rect id="polyfillRect" x="100" y="100" width="100" height="100" fill="green" opacity="0.5">
+    <animateMotion path="M 0 0 L 100 100" begin="1s" dur="2s" fill="remove"/>
+    <animateMotion path="M 100 100 L 100 100" begin="3s" dur="2s" fill="remove"/>
+    <animateMotion path="M 100 100 L 0 0" begin="5s" dur="2s" fill="freeze"/>
+  </rect>
+
+  <rect id="nativeRect" x="100" y="100" width="100" height="100" fill="red" opacity="0.5">
+    <nativeAnimateMotion path="M 0 0 L 100 100" begin="1s" dur="2s" fill="remove"/>
+    <nativeAnimateMotion path="M 100 100 L 100 100" begin="3s" dur="2s" fill="remove"/>
+    <nativeAnimateMotion path="M 100 100 L 0 0" begin="5s" dur="2s" fill="freeze"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

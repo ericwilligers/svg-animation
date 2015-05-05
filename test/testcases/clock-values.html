@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="clock-values-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+  <rect id="firstPolyfillRect" x="0" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="firstAnimation" attributeName="height" from="100" to="1440100" dur="2h"/>
+  </rect>
+  <rect id="secondPolyfillRect" x="50" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="secondAnimation" attributeName="height" from="100" to="24100" dur="2min"/>
+  </rect>
+  <rect id="thirdPolyfillRect" x="100" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="thirdAnimation" attributeName="height" from="100" to="6100" dur="30"/> <!-- seconds implicitly -->
+  </rect>
+  <rect id="fourthPolyfillRect" x="150" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="fourthAnimation" attributeName="height" from="100" to="1630" dur="7650ms"/>
+  </rect>
+  <rect id="fifthPolyfillRect" x="200" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="fifthAnimation" attributeName="height" from="100" to="24750" dur="02:03.250"/>
+  </rect>
+  <rect id="sixthPolyfillRect" x="250" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="sixthAnimation" attributeName="height" from="100" to="1477000" dur="2:03:04.500"/>
+  </rect>
+  <rect id="seventhPolyfillRect" x="300" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="seventhAnimation" attributeName="height" from="100" to="1400" dur="00:06.500"/>
+  </rect>
+  <rect id="eighthPolyfillRect" x="350" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="eighthAnimation" attributeName="height" from="100" to="1550" dur="0:00:07.250"/>
+  </rect>
+  <rect id="ninthPolyfillRect" x="400" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="ninthAnimation" attributeName="height" from="100" to="999999" dur="indefinite"/>
+  </rect>
+  <rect id="tenthPolyfillRect" x="450" y="0" width="40" height="100" fill="green" opacity="0.5">
+    <animate id="tenthAnimation" attributeName="height" from="100" to="999999"/> <!-- indefinite duration, implicitly -->
+  </rect>
+
+  <rect id="firstNativeRect" x="0" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <nativeAnimate id="firstAnimation" attributeName="height" from="100" to="1440100" dur="2h"/>
+  </rect>
+  <rect id="secondNativeRect" x="50" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <nativeAnimate id="secondAnimation" attributeName="height" from="100" to="24100" dur="2min"/>
+  </rect>
+  <rect id="thirdNativeRect" x="100" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <nativeAnimate id="thirdAnimation" attributeName="height" from="100" to="6100" dur="30"/> <!-- seconds implicitly -->
+  </rect>
+  <rect id="fourthNativeRect" x="150" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <nativeAnimate id="fourthAnimation" attributeName="height" from="100" to="1630" dur="7650ms"/>
+  </rect>
+  <rect id="fifthNativeRect" x="200" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <nativeAnimate id="fifthAnimation" attributeName="height" from="100" to="24750" dur="02:03.250"/>
+  </rect>
+  <rect id="sixthNativeRect" x="250" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <!-- Chrome doesn't support dur 2:03:04.500, Firefox does -->
+    <nativeAnimate id="sixthAnimation" attributeName="height" from="100" to="1477000" dur="7384.5s"/>
+  </rect>
+  <rect id="seventhNativeRect" x="300" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <nativeAnimate id="seventhAnimation" attributeName="height" from="100" to="1400" dur="00:06.500"/>
+  </rect>
+  <rect id="eighthNativeRect" x="350" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <!-- Chrome doesn't support dur 0:00:07.250, Firefox does -->
+    <nativeAnimate id="eighthAnimation" attributeName="height" from="100" to="1550" dur="00:07.250"/>
+  </rect>
+  <rect id="ninthNativeRect" x="400" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <nativeAnimate id="ninthAnimation" attributeName="height" from="100" to="999999" dur="indefinite"/>
+  </rect>
+  <rect id="tenthNativeRect" x="450" y="0" width="40" height="100" fill="red" opacity="0.5">
+    <nativeAnimate id="tenthAnimation" attributeName="height" from="100" to="999999"/> <!-- indefinite duration, implicitly -->
+  </rect>
+</svg>
+
+  </body>
+</html>

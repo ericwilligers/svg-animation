@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="mouseout-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="250">
+  <rect id="polyfillRectLeft" x="100" y="0" width="100" height="100" fill="blue">
+    <!-- mouseout is short for polyfillRectLeft.mouseout -->
+    <animate id="polyfillAnimLeft" attributeName="fill" from="red" to="red" dur="2s"
+        begin="mouseout"/>
+  </rect>
+  <rect id="polyfillRectRight" x="210" y="0" width="100" height="100" fill="blue">
+    <animate id="polyfillAnimRight" attributeName="fill" from="red" to="red" dur="indefinite"
+        begin="mouseout + 5s" end="mouseout + 7s"/>
+  </rect>
+
+  <rect id="nativeRectLeft" x="100" y="110" width="100" height="100" fill="blue">
+    <nativeAnimate attributeName="fill" from="red" to="red" dur="2s"
+        begin="mouseout"/>
+  </rect>
+  <rect id="nativeRectRight" x="210" y="110" width="100" height="100" fill="blue">
+    <nativeAnimate attributeName="fill" from="red" to="red" dur="indefinite"
+        begin="mouseout + 5s" end="mouseout + 7s"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

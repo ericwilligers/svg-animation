@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="sync-base-event-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="1000">
+  <!-- We list the elements out of order, to exercise the implementation code that has handles dependent time values waiting for their timebase animation records to be created -->
+  <rect id="thirdPolyfillRect" x="0" y="200" width="100" height="90" fill="green">
+    <animate id="thirdPolyfillAnim" attributeName="width" values="100;200;100;0;0" dur="4s" begin="secondPolyfillAnim.endEvent+1s" end="secondPolyfillAnim.endEvent+3s"/>
+  </rect>
+  <rect id="fourthPolyfillRect" x="0" y="300" width="100" height="90" fill="green">
+    <animate id="fourthPolyfillAnim" attributeName="width" values="100;200;100" dur="2s" begin="secondPolyfillAnim.endEvent+4s"/>
+  </rect>
+  <rect id="fifthPolyfillRect" x="0" y="400" width="100" height="90" fill="green">
+    <animate id="fifthPolyfillAnim" attributeName="width" values="100;200;100" dur="2s" begin="fourthPolyfillAnim.beginEvent+3s" end="fourthPolyfillAnim.beginEvent+5s"/>
+  </rect>
+  <rect id="secondPolyfillRect" x="0" y="100" width="100" height="90" fill="green">
+    <animate id="secondPolyfillAnim" attributeName="width" values="100;200;100" dur="2s" begin="firstPolyfillAnim.endEvent+1s"/>
+  </rect>
+  <rect id="firstPolyfillRect" x="0" y="0" width="100" height="90" fill="green">
+    <animate id="firstPolyfillAnim" attributeName="width" values="100;200;100" dur="2s" begin="30s;fifthPolyfillAnim.endEvent+1s"/>
+  </rect>
+
+  <rect id="thirdNativeRect" x="0" y="700" width="100" height="90" fill="green">
+    <nativeAnimate id="thirdNativeAnim" attributeName="width" values="100;200;100;0;0" dur="4s" begin="secondNativeAnim.endEvent+1s" end="secondNativeAnim.endEvent+3s"/>
+  </rect>
+  <rect id="fourthNativeRect" x="0" y="800" width="100" height="90" fill="green">
+    <nativeAnimate id="fourthNativeAnim" attributeName="width" values="100;200;100" dur="2s" begin="secondNativeAnim.endEvent+4s"/>
+  </rect>
+  <rect id="fifthNativeRect" x="0" y="900" width="100" height="90" fill="green">
+    <nativeAnimate id="fifthNativeAnim" attributeName="width" values="100;200;100" dur="2s" begin="fourthNativeAnim.beginEvent+3s"/>
+  </rect>
+  <rect id="secondNativeRect" x="0" y="600" width="100" height="90" fill="green">
+    <nativeAnimate id="secondNativeAnim" attributeName="width" values="100;200;100" dur="2s" begin="firstNativeAnim.endEvent+1s"/>
+  </rect>
+  <rect id="firstNativeRect" x="0" y="500" width="100" height="90" fill="green">
+    <nativeAnimate id="firstNativeAnim" attributeName="width" values="100;200;100" dur="2s" begin="30s;fifthNativeAnim.endEvent+1s"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

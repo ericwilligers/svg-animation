@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="escape-punctuation-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="1000">
+
+  <rect id="firstPolyfillRect" x="0" y="0" width="100" height="90" fill="green" opacity="0.5">
+    <animate id="first.Polyfill-Anim" attributeName="width" values="100;400" dur="6s" begin="0s"/>
+  </rect>
+  <rect id="secondPolyfillRect" x="0" y="100" width="100" height="90" fill="green" opacity="0.5">
+    <animate id="second.Polyfill-Anim" attributeName="width" values="200;100;200" dur="4s" begin="first\.Polyfill\-Anim.begin - 2s"/>
+  </rect>
+  <rect id="thirdPolyfillRect" x="0" y="200" width="100" height="90" fill="green" opacity="0.5">
+    <animate id="third.Polyfill-Anim" attributeName="width" values="300;400" dur="2s" begin="second\.Polyfill\-Anim.end + 2s"/>
+  </rect>
+
+  <!-- Chrome, unlike Firefox, does not currently support escapes -->
+  <rect id="firstNativeRect" x="0" y="0" width="100" height="90" fill="red" opacity="0.5">
+    <nativeAnimate id="firstNativeAnim" attributeName="width" values="100;400" dur="6s" begin="0s"/>
+  </rect>
+  <rect id="secondNativeRect" x="0" y="100" width="100" height="90" fill="red" opacity="0.5">
+    <nativeAnimate id="secondNativeAnim" attributeName="width" values="200;100;200" dur="4s" begin="firstNativeAnim.begin - 2s"/>
+  </rect>
+  <rect id="thirdNativeRect" x="0" y="200" width="100" height="90" fill="red" opacity="0.5">
+    <nativeAnimate id="thirdNativeAnim" attributeName="width" values="300;400" dur="2s" begin="secondNativeAnim.end + 2s"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

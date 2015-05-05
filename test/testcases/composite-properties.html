@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="composite-properties-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="700" height="500">
+
+  <defs>
+    <g id="image1" width="200" height="200">
+      <rect width="200" height="200" fill="yellow" opacity="0.5"/>
+      <circle cx="100" cy="100" r="40" fill="blue"/>
+    </g>
+    <g id="image2" width="200" height="200">
+      <rect width="200" height="200">
+        <nativeAnimate attributeName="fill" values="black;rgba(255,0,0,0);black;rgba(0,255,0,0);black" dur="5s" repeatCount="4"/>
+      </rect>
+    </g>
+  </defs>
+
+  <defs>
+    <filter id="polyfillFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+      <feImage xlink:href="#image1" result="pict1"/>
+      <feImage xlink:href="#image2" result="pict2"/>
+      <feDisplacementMap id="polyfillDisplacementMap" xChannelSelector="G" yChannelSelector="R" in2="pict2" in="pict1" result="pict3">
+        <animate attributeName="scale" from="10" to="50" dur="20s"/>
+      </feDisplacementMap>
+      <feComposite id="polyfillComposite" in="pict1" in2="pict3" operator="arithmetic" k1="0" k2="1" k3="1" k4="0">
+        <animate attributeName="k1" from="0" to="0.25" dur="20s"/>
+        <animate attributeName="k2" from="0" to="1" dur="20s"/>
+        <animate attributeName="k3" from="1" to="0" dur="20s"/>
+        <animate attributeName="k4" from="0.25" to="0" dur="20s"/>
+      </feComposite>
+    </filter>
+  </defs>
+  <use filter="url(#polyfillFilter)" x="100" y="100" width="200" height="200"/>
+
+  <defs>
+    <filter id="nativeFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+      <feImage xlink:href="#image1" result="pict4"/>
+      <feImage xlink:href="#image2" result="pict5"/>
+      <feDisplacementMap id="nativeDisplacementMap" xChannelSelector="G" yChannelSelector="R" in2="pict5" in="pict4" result="pict6">
+        <nativeAnimate attributeName="scale" from="10" to="50" dur="20s"/>
+      </feDisplacementMap>
+      <feComposite id="nativeComposite" in="pict4" in2="pict6" operator="arithmetic" k1="0" k2="1" k3="1" k4="0">
+        <nativeAnimate attributeName="k1" from="0" to="0.25" dur="20s"/>
+        <nativeAnimate attributeName="k2" from="0" to="1" dur="20s"/>
+        <nativeAnimate attributeName="k3" from="1" to="0" dur="20s"/>
+        <nativeAnimate attributeName="k4" from="0.25" to="0" dur="20s"/>
+      </feComposite>
+    </filter>
+  </defs>
+  <use filter="url(#nativeFilter)" x="400" y="100" width="200" height="200"/>
+
+  </body>
+</html>

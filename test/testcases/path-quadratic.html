@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="path-quadratic-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+
+  <path id="polyfillPath" d="M 100 200 Q 120 180 160 140 T 300 400" fill="green">
+    <animate attributeName="d" from="M 100 200 Q 120 180 160 140 T 300 400" to="M 140 240 Q 160 220 260 180 T 340 440" dur="4s" begin="3s"/>
+  </path>
+
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+
+  <path id="nativePath" d="M 100 200 Q 120 180 160 140 T 300 400" fill="green">
+    <nativeAnimate attributeName="d" from="M 100 200 Q 120 180 160 140 T 300 400" to="M 140 240 Q 160 220 260 180 T 340 440" dur="4s" begin="3s"/>
+  </path>
+
+</svg>
+
+  </body>
+</html>

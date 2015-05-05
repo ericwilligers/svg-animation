@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="min-max-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="350" height="250">
+  <rect id="polyfillRectLeft" x="0" y="0" width="100" height="100" fill="blue">
+    <animate id="polyfillAnimLeft" attributeName="fill" from="red" to="red" dur="2s" repeatCount="3" max="1s"/>
+  </rect>
+  <rect id="polyfillRectMiddle" x="110" y="0" width="100" height="100" fill="blue">
+    <animate id="polyfillAnimMiddle" attributeName="fill" from="red" to="red" dur="1s" repeatCount="1.1" min="2s"/>
+  </rect>
+  <rect id="polyfillRectRight" x="220" y="0" width="100" height="100" fill="blue">
+    <animate id="polyfillAnimRight" attributeName="fill" from="red" to="red" dur="indefinite" min="0s" max="indefinite"/>
+  </rect>
+
+  <rect id="nativeRectLeft" x="0" y="110" width="100" height="100" fill="blue">
+    <nativeAnimate attributeName="fill" from="red" to="red" dur="2s" repeatCount="3" max="1s"/>
+  </rect>
+  <rect id="nativeRectMiddle" x="110" y="110" width="100" height="100" fill="blue">
+    <nativeAnimate attributeName="fill" from="red" to="red" dur="1s" repeatCount="1.1" min="2s"/>
+  </rect>
+  <rect id="nativeRectRight" x="220" y="110" width="100" height="100" fill="blue">
+    <nativeAnimate attributeName="fill" from="red" to="red" dur="indefinite" min="0s" max="indefinite"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

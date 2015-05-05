@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="keySplines-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600">
+  <circle id="polyfillCircle" cx="300" cy="300" r="0" fill="green" opacity="0.5">
+    <!-- keyTimes is implicitly "0; 0.5; 1" -->
+    <animate attributeName="r" values="0; 250; 0" calcMode="spline" keySplines="0 .75 .25 1; 0.75, 0, 1, 0.25" begin="10s" dur="3s" repeatDur="9s"/>
+  </circle>
+
+  <circle id="nativeCircle" cx="300" cy="300" r="0" fill="red" opacity="0.5">
+    <nativeAnimate attributeName="r" values="0; 250; 0" calcMode="spline" keySplines="0 .75 .25 1; 0.75, 0, 1, 0.25" begin="10s" dur="3s" repeatDur="9s"/>
+  </circle>
+</svg>
+
+  </body>
+</html>

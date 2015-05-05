@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="set-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="250">
+  <rect id="polyfillRect" x="0" y="0" width="100" height="100" fill="green">
+    <set attributeName="width" to="200"/>
+    <set attributeName="rx" to="20"/>
+    <set attributeName="ry" to="10"/>
+  </rect>
+
+  <rect id="nativeRect" x="0" y="110" width="100" height="100" fill="green">
+    <nativeSet attributeName="width" to="200"/>
+    <nativeSet attributeName="rx" to="20"/>
+    <nativeSet attributeName="ry" to="10"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="get-current-time-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="500">
+  <rect id="polyfillRect" x="10" y="10" width="100" height="100" fill="lime"/>
+  <rect id="nativeRect" x="10" y="10" width="100" height="100" fill="lime"/>
+  <animateMotion id="polyfillAnimation" xlink:href="#polyfillRect" additive="sum" calcMode="linear" path="M 0 0 L 0 100" dur="3s"/>
+  <nativeAnimateMotion id="nativeAnimation" xlink:href="#nativeRect" additive="sum" calcMode="linear" path="M 0 300 L 0 400" dur="3s"/>
+</svg>
+
+  </body>
+</html>

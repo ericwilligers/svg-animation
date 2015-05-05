@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="animateMotion-autoReverse-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="900">
+  <polyline id="polyfillForwards" points="0,0 40,10 0,20 10,10" fill="green" opacity="0.5">
+    <animateMotion path="M 100 700 C 352 700 448 100 700 100 Z C 448 100 352 700 100 700"
+      calcMode="paced" dur="15s" repeatCount="indefinite" rotate="auto"/>
+  </polyline>
+
+  <polyline id="nativeForwards" points="0,0 40,10 0,20 10,10" fill="red" opacity="0.5">
+    <nativeAnimateMotion path="M 100 700 C 352 700 448 100 700 100 Z C 448 100 352 700 100 700"
+      calcMode="paced" dur="15s" repeatCount="indefinite" rotate="auto"/>
+  </polyline>
+
+  <polyline id="polyfillBackwards" points="0,0 40,10 0,20 10,10" fill="green" opacity="0.5">
+    <animateMotion path="M 200 700 C 352 700 548 100 800 100 Z C 548 100 452 700 200 700"
+      calcMode="paced" dur="15s" repeatCount="indefinite" rotate="auto-reverse"/>
+  </polyline>
+
+  <polyline id="nativeBackwards" points="0,0 40,10 0,20 10,10" fill="red" opacity="0.5">
+    <nativeAnimateMotion path="M 200 700 C 352 700 548 100 800 100 Z C 548 100 452 700 200 700"
+      calcMode="paced" dur="15s" repeatCount="indefinite" rotate="auto-reverse"/>
+  </polyline>
+</svg>
+
+  </body>
+</html>

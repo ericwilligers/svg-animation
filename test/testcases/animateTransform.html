@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="animateTransform-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500">
+  <rect id="polyfillRect" width="40" height="40" fill="green">
+    <animateTransform attributeName="transform" type="scale" from="1" to="3" dur="2s" begin="0s" end="2s"/>
+    <animateTransform attributeName="transform" type="scale" from="3,3" to="2 4" dur="2s" begin="2s" end="4s"/>
+
+    <animateTransform attributeName="transform" type="translate" from="100" to="300" dur="2s" begin="4s" end="6s"/>
+    <animateTransform attributeName="transform" type="translate" from="300,300" to="200 400" dur="2s" begin="6s" end="8s"/>
+
+    <animateTransform attributeName="transform" type="rotate" from="0" to="40" dur="2s" begin="8s" end="10s"/>
+    <animateTransform attributeName="transform" type="rotate" from="40,0,0" to="0 400 200" dur="2s" begin="10s" end="12s"/>
+
+    <animateTransform attributeName="transform" type="skewX" from="0" to="40" dur="2s" begin="12s" end="14s"/>
+    <animateTransform attributeName="transform" type="skewY" from="-40" to="0" dur="2s" begin="14s" end="16s"/>
+  </rect>
+
+  <rect id="nativeRect" x="130" width="40" height="40" fill="green">
+    <nativeAnimateTransform attributeName="transform" type="scale" from="1" to="3" dur="2s" begin="0s" end="2s"/>
+    <nativeAnimateTransform attributeName="transform" type="scale" from="3,3" to="2,4" dur="2s" begin="2s" end="4s"/>
+
+    <nativeAnimateTransform attributeName="transform" type="translate" from="100" to="300" dur="2s" begin="4s" end="6s"/>
+    <nativeAnimateTransform attributeName="transform" type="translate" from="300,300" to="200,400" dur="2s" begin="6s" end="8s"/>
+
+    <nativeAnimateTransform attributeName="transform" type="rotate" from="0" to="40" dur="2s" begin="8s" end="10s"/>
+    <nativeAnimateTransform attributeName="transform" type="rotate" from="40 0 0" to="0 400 200" dur="2s" begin="10s" end="12s"/>
+
+    <nativeAnimateTransform attributeName="transform" type="skewX" from="0" to="40" dur="2s" begin="12s" end="14s"/>
+    <nativeAnimateTransform attributeName="transform" type="skewY" from="-40" to="0" dur="2s" begin="14s" end="16s"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

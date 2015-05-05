@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "karma": "^0.12.19",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-mocha": "^0.1.6",
+    "mocha": "^1.21.3"
+  }
+}

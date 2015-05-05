@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="restart-never-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300">
+  <rect id="polyfillRectLeft" x="0" y="0" width="80" height="80" fill="green">
+    <animate id="polyfillAnimLeft" attributeName="width" from="80" to="0" dur="2s" begin="1s;2s;5s;6s" restart="never"/>
+  </rect>
+  <rect id="polyfillRectCentre" x="100" y="0" width="80" height="80" fill="green">
+    <animate attributeName="width" from="80" to="0" dur="2s" begin="polyfillAnimLeft.begin"/>
+  </rect>
+  <rect id="polyfillRectRight" x="200" y="0" width="80" height="80" fill="green">
+    <animate attributeName="width" from="80" to="0" dur="2s" begin="polyfillAnimLeft.end"/>
+  </rect>
+
+  <rect id="nativeRectLeft" x="0" y="100" width="80" height="80" fill="green">
+    <nativeAnimate id="nativeAnimLeft" attributeName="width" from="80" to="0" dur="2s" begin="1s;2s;5s;6s" restart="never"/>
+  </rect>
+  <rect id="nativeRectCentre" x="100" y="100" width="80" height="80" fill="green">
+    <nativeAnimate attributeName="width" from="80" to="0" dur="2s" begin="nativeAnimLeft.begin"/>
+  </rect>
+  <rect id="nativeRectRight" x="200" y="100" width="80" height="80" fill="green">
+    <nativeAnimate attributeName="width" from="80" to="0" dur="2s" begin="nativeAnimLeft.end"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

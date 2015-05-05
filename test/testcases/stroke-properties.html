@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="stroke-properties-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="500">
+
+  <polyline id="polyfillLine" points="30,30 730,30 730,130 30,130" fill="none">
+    <animate attributeName="color" from="red" to="yellow" dur="2s" fill="freeze"/>
+    <animate attributeName="stroke" values="currentColor; none; green; blue; currentColor" dur="2s" fill="freeze"/>
+    <animate attributeName="stroke-width" from="10" to="20" dur="2s" fill="freeze"/>
+    <animate attributeName="stroke-opacity" from="1" to="0.2" dur="2s" fill="freeze"/>
+    <animate attributeName="stroke-dashoffset" from="0" to="100" dur="2s" fill="freeze"/>
+    <animate attributeName="stroke-dasharray" from="10, 15, 20, 25, 30, 35" to="10, 15, 20, 35, 10, 45" dur="2s" fill="freeze"/>
+    <animate attributeName="points" from="30,30 730,30 730,130 30,130" to="30,130 730,130 730,230 30,230" dur="2s" fill="freeze"/>
+  </polyline>
+
+  <polyline id="nativeLine" points="30,30 730,30 730,130 30,130" fill="none" transform="translate(0, 200)">
+    <nativeAnimate attributeName="color" from="red" to="yellow" dur="2s" fill="freeze"/>
+    <nativeAnimate attributeName="stroke" values="currentColor; none; green; blue; currentColor" dur="2s" fill="freeze"/>
+    <nativeAnimate attributeName="stroke-width" from="10" to="20" dur="2s" fill="freeze"/>
+    <nativeAnimate attributeName="stroke-opacity" from="1" to="0.2" dur="2s" fill="freeze"/>
+    <nativeAnimate attributeName="stroke-dashoffset" from="0" to="100" dur="2s" fill="freeze"/>
+    <nativeAnimate attributeName="stroke-dasharray" from="10, 15, 20, 25, 30, 35" to="10, 15, 20, 35, 10, 45" dur="2s" fill="freeze"/>
+    <nativeAnimate attributeName="points" from="30,30 730,30 730,130 30,130" to="30,130 730,130 730,230 30,230" dur="2s" fill="freeze"/>
+  </polyline>
+
+</svg>
+
+  </body>
+</html>

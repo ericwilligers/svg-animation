@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="path-relative-cubic-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="700">
+
+  <path id="polyfillPath" d="M 100 200 c 100 200 250 100 250 200 s 400 300 400 200" fill="green">
+    <animate attributeName="d" from="M 100 200 c 100 200 250 100 250 200 s 400 300 400 200" to="M 200 400 c 200 400 350 300 350 400 s 500 500 500 400" dur="4s" begin="3s"/>
+  </path>
+
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="700">
+
+  <path id="nativePath" d="M 100 200 c 100 200 250 100 250 200 s 400 300 400 200" fill="red">
+    <nativeAnimate attributeName="d" from="M 100 200 c 100 200 250 100 250 200 s 400 300 400 200" to="M 200 400 c 200 400 350 300 350 400 s 500 500 500 400" dur="4s" begin="3s"/>
+  </path>
+
+</svg>
+
+  </body>
+</html>

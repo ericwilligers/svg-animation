@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="animateMotion-paced-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="800">
+  <rect id="polyfillRect" x="100" y="100" width="20" height="20" fill="green" opacity="0.5">
+    <animateMotion calcMode="paced" dur="136s"
+      path="m 0 0 h 30 v 40 h 66" fill="freeze"/>
+  </rect>
+
+  <!-- calcMode defaults to paced -->
+  <rect id="polyfillRectRight" x="130" y="100" width="20" height="20" fill="green" opacity="0.5">
+    <animateMotion dur="136s"
+      path="m 0 0 h 30 v 40 h 66" fill="freeze"/>
+  </rect>
+
+  <rect id="nativeRect" x="100" y="100" width="20" height="20" fill="red" opacity="0.5">
+    <nativeAnimateMotion calcMode="paced" dur="136s"
+      path="m 0 0 h 30 v 40 h 66" fill="freeze"/>
+  </rect>
+
+  <rect id="nativeRectRight" x="130" y="100" width="20" height="20" fill="red" opacity="0.5">
+    <nativeAnimateMotion dur="136s"
+      path="m 0 0 h 30 v 40 h 66" fill="freeze"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

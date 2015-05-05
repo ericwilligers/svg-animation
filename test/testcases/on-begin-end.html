@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="on-begin-end-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600">
+  <ellipse id="polyfillEllipse" cx="100" cy="100" rx="5" ry="5" fill="green" opacity="0.5">
+    <animate id="polyfillAnimRX" attributeName="rx" from="10" to="110" dur="10s" begin="5s" end="10s" onbegin="polyfillAnimRY.beginElement()" onend="polyfillAnimRY.endElement()"/>
+    <animate id="polyfillAnimRY" attributeName="ry" from="60" to="60" dur="10s" begin="indefinite" onbegin="invalid script"/> <!-- we must not crash on invalid script -->
+  </ellipse>
+
+  <ellipse id="nativeEllipse" cx="300" cy="100" rx="5" ry="5" fill="red" opacity="0.5">
+    <nativeAnimate id="nativeAnimRX" attributeName="rx" from="10" to="110" dur="10s" begin="5s" end="10s" onbegin="nativeAnimRY.beginElement()" onend="nativeAnimRY.endElement()"/>
+    <nativeAnimate id="nativeAnimRY" attributeName="ry" from="60" to="60" dur="10s" begin="indefinite"/>
+  </ellipse>
+</svg>
+
+  </body>
+</html>

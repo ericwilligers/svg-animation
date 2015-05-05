@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="bounce-check.js"></script>
+
+<svg width="320px" height="320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="polyfillBall" transform="translate(160,110)">
+    <ellipse cx="0" cy="0" rx="27" ry="27" fill="#142536">
+    <animateTransform attributeName="transform" attributeType="XML" calcMode="spline" keySplines="0.6 0.0 1 0.0; 0.0 0.9 0.0 1" keyTimes="0;0.56;1" type="translate" values="0,0;0,109;0,0" dur="1.2s" repeatCount="9"/>
+  </g>
+  <g>
+    <ellipse id="polyfillShadow" cx="160" cy="250" ry="5">
+      <animate attributeName="rx" calcMode="spline" keySplines="0.6 0.0 1 0.0; 0.0 0.9 0.0 1" keyTimes="0;0.56;1" values="36;10;36" dur="1.2s" repeatCount="9"/>
+      <animate attributeName="fill" calcMode="spline" keySplines="0.6 0.0 1 0.0; 0.0 0.9 0.0 1" keyTimes="0;0.56;1" values="rgba(0,0,0,0.1);rgba(0,0,50,0.4);rgba(0,0,0,0.1)" dur="1.2s" repeatCount="9"/>
+    </ellipse>
+  </g>
+</svg>
+
+<svg width="320px" height="320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="nativeBall" transform="translate(160,110)">
+    <ellipse cx="0" cy="0" rx="27" ry="27" fill="#142536">
+    <nativeAnimateTransform attributeName="transform" attributeType="XML" calcMode="spline" keySplines="0.6 0.0 1 0.0; 0.0 0.9 0.0 1" keyTimes="0;0.56;1" type="translate" values="0,0;0,109;0,0" dur="1.2s" repeatCount="9"/>
+  </g>
+  <g>
+    <ellipse id="nativeShadow" cx="160" cy="250" ry="5">
+      <nativeAnimate attributeName="rx" calcMode="spline" keySplines="0.6 0.0 1 0.0; 0.0 0.9 0.0 1" keyTimes="0;0.56;1" values="36;10;36" dur="1.2s" repeatCount="9"/>
+      <nativeAnimate attributeName="fill" calcMode="spline" keySplines="0.6 0.0 1 0.0; 0.0 0.9 0.0 1" keyTimes="0;0.56;1" values="rgba(0,0,0,0.1);rgba(0,0,50,0.4);rgba(0,0,0,0.1)" dur="1.2s" repeatCount="9"/>
+    </ellipse>
+  </g>
+</svg>
+
+  </body>
+</html>

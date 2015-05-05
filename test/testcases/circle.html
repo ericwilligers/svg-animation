@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="circle-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600">
+  <circle id="polyfillCircle" cx="20" cy="20" r="10" fill="green" opacity="0.5">
+    <animate attributeName="cx" from="300" to="200" dur="4s" fill="freeze" min="3s" max="3.5s"/>
+    <!-- When max < min, min and max have no effect -->
+    <animate attributeName="cy" from="300" to="200" dur="4s" fill="freeze" min="3.5s" max="3s"/>
+    <animate attributeName="r" from="200" to="100" dur="4s" fill="freeze"/>
+    <animate attributeName="fill-opacity" from="1" to="0.5" dur="4s" fill="freeze"/>
+  </circle>
+
+  <circle id="nativeCircle" cx="20" cy="20" r="10" fill="red" opacity="0.5">
+    <nativeAnimate attributeName="cx" from="300" to="200" dur="4s" fill="freeze" min="3s" max="3.5s"/>
+    <nativeAnimate attributeName="cy" from="300" to="200" dur="4s" fill="freeze" min="3.5s" max="3s"/>
+    <nativeAnimate attributeName="r" from="200" to="100" dur="4s" fill="freeze"/>
+    <nativeAnimate attributeName="fill-opacity" from="1" to="0.5" dur="4s" fill="freeze"/>
+  </circle>
+</svg>
+
+  </body>
+</html>

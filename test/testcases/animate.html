@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="animate-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="250">
+  <rect id="polyfillRect" x="0" y="0" width="100" height="100" fill="green">
+    <animate attributeName="width" from="200" to="0" dur="2s" repeatCount="indefinite"/>
+    <!-- Clamping occurs after interpolation -->
+    <animate attributeName="fill-opacity" values="1.75;0.25;1.75" dur="4s" fill="freeze"/>
+  </rect>
+
+  <rect id="nativeRect" x="0" y="100" width="100" height="100" fill="green">
+    <nativeAnimate attributeName="width" from="200" to="0" dur="2s" repeatCount="indefinite"/>
+    <nativeAnimate attributeName="fill-opacity" values="1.75;0.25;1.75" dur="4s" fill="freeze"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

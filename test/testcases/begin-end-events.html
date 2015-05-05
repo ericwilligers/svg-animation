@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="begin-end-events-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600">
+  <circle id="polyfillCircle" cx="300" cy="300" r="10" fill="green" opacity="0.5">
+    <animate id="polyfillAnim" attributeName="r" from="200" to="100" dur="4s" begin="36s;44s;48s" end="32s;40s;52s;56s" fill="freeze"/>
+  </circle>
+
+  <circle id="nativeCircle" cx="300" cy="300" r="10" fill="red" opacity="0.5">
+    <nativeAnimate id="polyfillAnim" attributeName="r" from="200" to="100" dur="4s" begin="36s;44s;48s" end="32s;40s;52s;56s" fill="freeze"/>
+  </circle>
+</svg>
+
+  </body>
+</html>

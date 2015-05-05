@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="text-properties-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500">
+
+  <g>
+    <text id="polyfillText" x="10" y="10">
+      <animate attributeName="x" attributeType="XML" dur="2s" from="0 20 40" to="10 40 70"/>
+      <animate attributeName="dy" attributeType="XML" dur="2s" from="0 0 0" to="30 40 50"/>
+      <animate attributeName="rotate" attributeType="XML" dur="2s" from="0 -30 30" to="0 -90 90"/>
+      ABC
+    </text>
+    <text id="nativeText" x="210" y="10">
+      <nativeAnimate attributeName="x" attributeType="XML" dur="2s" from="0 20 40" to="10 40 70"/>
+      <nativeAnimate attributeName="dy" attributeType="XML" dur="2s" from="0 0 0" to="30 40 50"/>
+      <nativeAnimate attributeName="rotate" attributeType="XML" dur="2s" from="0 -30 30" to="0 -90 90"/>
+      ABC
+    </text>
+  </g>
+
+</svg>
+
+  </body>
+</html>

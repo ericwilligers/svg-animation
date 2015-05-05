@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="skip-non-svg-targets-check.js"></script>
+
+    <style>
+      div {
+        width: 30px;
+        background-color: green;
+      }
+    </style>
+
+    <div id="polyfillDivTop" class="test">PT</div>
+    <div id="nativeDivTop" class="test">NT</div>
+    <div id="polyfillDivBottom" class="test">PB</div>
+    <div id="nativeDivBottom" class="test">NB</div>
+
+<svg id="picture" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="250">
+  <set xlink:href="#polyfillDivTop" attributeName="transform" to="scale(0.5)"/>
+  <nativeSet xlink:href="#nativeDivTop" attributeName="transform" to="scale(0.5)"/>
+
+  <!-- We create the following dynamically:
+  <set id="polyfillSet" xlink:href="#polyfillDivBottom" attributeName="transform" to="scale(0.5)"/>
+  <nativeSet id="nativeSet" xlink:href="#nativeDivBottom" attributeName="transform" to="scale(0.5)"/>
+  -->
+</svg>
+
+  </body>
+</html>

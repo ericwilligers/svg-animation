@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="repeat-count-dur-check.js"></script>
+
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600">
+      <rect id="polyfillFirstRect" x="110" y="10" width="300" height="100" fill="green" opacity="0.5"/>
+      <rect id="polyfillSecondRect" x="220" y="110" width="300" height="100" fill="green" opacity="0.5"/>
+      <animate id="polyfillFirstAnim" xlink:href="#polyfillFirstRect" attributeName="width" from="0" to="200" dur="4s" repeatCount="2.5" repeatDur="8s" min="7s" max="11s"/>
+      <animate id="polyfillSecondAnim" xlink:href="#polyfillSecondRect" attributeName="width" from="0" to="200" dur="4s" repeatCount="2" repeatDur="10s" min="7s" max="11s"/>
+
+      <rect id="nativeFirstRect" x="110" y="10" width="300" height="100" fill="red" opacity="0.5"/>
+      <rect id="nativeSecondRect" x="220" y="110" width="300" height="100" fill="red" opacity="0.5"/>
+      <nativeAnimate id="nativeFirstAnim" xlink:href="#nativeFirstRect" attributeName="width" from="0" to="200" dur="4s" repeatCount="2.5" repeatDur="8s" min="7s" max="11s"/>
+      <nativeAnimate id="nativeSecondAnim" xlink:href="#nativeSecondRect" attributeName="width" from="0" to="200" dur="4s" repeatCount="2" repeatDur="10s" min="7s" max="11s"/>
+    </svg>
+
+  </body>
+</html>

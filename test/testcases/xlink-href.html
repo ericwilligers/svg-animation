@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="xlink-href-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="500">
+  <!-- The animation tag, e.g. set, can appear inside defs (height) or outside defs (width). -->
+
+  <defs>
+    <set xlink:href="#polyfillRect" attributeName="height" to="200"/>
+  </defs>
+  <rect id="polyfillRect" x="0" y="0" width="100" height="100" fill="green"/>
+  <set xlink:href="#polyfillRect" attributeName="width" to="200"/>
+
+  <defs>
+    <nativeSet xlink:href="#nativeRect" attributeName="height" to="200"/>
+  </defs>
+  <rect id="nativeRect" x="0" y="210" width="100" height="100" fill="green"/>
+  <nativeSet xlink:href="#nativeRect" attributeName="width" to="200"/>
+</svg>
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="animateMotion-keyPoints-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="800">
+  <rect id="polyfillRect" x="100" y="100" width="20" height="20" fill="green" opacity="0.5">
+    <animateMotion dur="10s" keyTimes="0;0.5;0.8;0.8;0.9;1;1" keyPoints="0;0.1;0.2;0.3;0.5;1;0"
+      path="m 0 0 h 20 h 30 h 50" fill="freeze"/>
+  </rect>
+  <rect id="nativeRect" x="100" y="100" width="20" height="20" fill="red" opacity="0.5">
+    <nativeAnimateMotion dur="10s" keyTimes="0;0.5;0.8;0.8;0.9;1;1" keyPoints="0;0.1;0.2;0.3;0.5;1;0"
+      path="m 0 0 h 20 h 30 h 50" fill="freeze"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

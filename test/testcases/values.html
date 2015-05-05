@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="../../web-animations.js"></script>
+    <script src="../../smil-in-javascript.js"></script>
+    <script src="../harness.js"></script>
+    <script src="values-check.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="250">
+  <rect id="polyfillRect" x="0" y="0" width="100" height="100" fill="green">
+    <animate attributeName="width" values="100;0;50;0;100" dur="2s" repeatCount="2"/>
+    <animate attributeName="height" values="50" keyTimes dur="2s" repeatCount="2"/>
+    <animate attributeName="display" values="inline;none;inline" dur="2s" repeatCount="2" begin="4s"/>
+  </rect>
+
+  <rect id="nativeRect" x="0" y="110" width="100" height="100" fill="green">
+    <nativeAnimate attributeName="width" values="100;0;50;0;100" dur="2s" repeatCount="2"/>
+    <nativeAnimate attributeName="height" values="50" dur="2s" repeatCount="2"/>
+    <nativeAnimate attributeName="display" values="inline;none;inline" dur="2s" repeatCount="2" begin="4s"/>
+  </rect>
+</svg>
+
+  </body>
+</html>

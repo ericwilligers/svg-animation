@@ -5,6 +5,7 @@ tools/python/include/*
 tools/python/local/*
 tools/python/src/*
 tools/python/bin/*
+tools/python/selenium/*
 smil-in-javascript-4lint.js
 svg-animations.js
 test/testcases.js

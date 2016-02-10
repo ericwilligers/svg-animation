@@ -9,7 +9,7 @@ lint: smil-in-javascript.js test/harness.js test/testcases/*.js test/unit-tests/
 	./run-lint.sh
 
 unit-test:
-	karma start --single-run
+	./node_modules/karma/bin/karma start --single-run
 
 layout-test:
 	touch test/testcases.js
